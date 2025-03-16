@@ -26,7 +26,7 @@ Ensure your dataset (`eth_clean.csv`) contains:
 
 ### 2. Run the Script
 ```sh
-python donchian6.py
+python donchian.py
 ```
 The script:
 1. Loads historical price data.
