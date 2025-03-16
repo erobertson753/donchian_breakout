@@ -1,4 +1,4 @@
-# Donchian Breakout Strategy
+# Donchian Channel Breakout Strategy
 
 This project implements a **Donchian Channel Breakout Strategy** for analyzing and optimizing trading signals based on historical price data. The strategy generates buy/sell signals when the closing price breaks above or below the Donchian channel.
 
