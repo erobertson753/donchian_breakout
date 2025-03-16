@@ -37,7 +37,7 @@ This script:
 
 ### 2. Run the Strategy Script
 ```sh
-python donchian6.py
+python donchian.py
 ```
 
 The script:
