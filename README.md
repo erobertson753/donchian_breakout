@@ -8,10 +8,11 @@ This project implements a **Donchian Channel Breakout Strategy** for analyzing a
 - **Performance Visualization**: Plots the cumulative log returns of the strategy.
 
 ## Requirements
-- Python 3.x
-- Pandas
-- NumPy
-- Matplotlib
+- **Python 3.x**
+- **R** with `tidyverse`, `dplyr`, and `lubridate` packages
+- `pandas`
+- `numpy`
+- `matplotlib`
 
 Install dependencies using:
 ```sh
@@ -20,30 +21,41 @@ pip install pandas numpy matplotlib
 
 ## Usage
 ### 1. Prepare Your Data
-Ensure your dataset (`eth_clean.csv`) contains:
-- `Date` column (datetime format)
-- `Close` column (closing prices)
+The dataset is preprocessed using an R script before running the Python strategy. Ensure you have the original **`eth.csv`** file.
 
-### 2. Run the Script
+Run the cleaning script in R:
 ```sh
-python donchian.py
+Rscript clean_eth_data.R
 ```
+
+This script:
+- Loads `eth.csv`, selecting the Unix timestamp and Close price.
+- Converts timestamps to datetime format.
+- Filters out invalid data and ensures the dataset is within the correct timeframe.
+- Reverses the dataset to chronological order.
+- Saves the cleaned dataset as **`eth_clean.csv`**.
+
+### 2. Run the Strategy Script
+```sh
+python donchian6.py
+```
+
 The script:
-1. Loads historical price data.
+1. Loads **`eth_clean.csv`**.
 2. Finds the optimal lookback period.
 3. Generates trading signals.
 4. Plots the cumulative log returns.
 
 ### 3. Expected Output
-- Optimal lookback period and corresponding profit factor.
-- A plotted graph showing cumulative log returns over time.
+- **Optimal lookback period** and corresponding **profit factor**.
+- A plotted graph showing **cumulative log returns** over time.
 
-## Example Output
+#### Example Output
 ```
 Optimal Lookback: 24, Profit Factor: 1.75
 ```
 (A figure displaying cumulative returns will also be generated.)
 
 ## License
-This project is licensed under the MIT License. See the original **mcpt** project by **neurotrader888** for reference: [GitHub Repository](https://github.com/neurotrader888/mcpt).
+This project is licensed under the **MIT License**. See the original **mcpt** project by **neurotrader888** for reference: [GitHub Repository](https://github.com/neurotrader888/mcpt).
 
