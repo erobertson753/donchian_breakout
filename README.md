@@ -52,7 +52,7 @@ The script:
 
 #### Example Output
 ```
-Optimal Lookback: 24, Profit Factor: 1.75
+Best Lookback: 43, Best Profit Factor: 1.04 over 65,810 total trades
 ```
 (A figure displaying cumulative returns will also be generated.)
 
