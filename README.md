@@ -47,7 +47,7 @@ The script:
 4. Plots the cumulative log returns.
 
 ### 3. Expected Output
-- **Optimal lookback period** and corresponding **profit factor**.
+- **Optimal lookback period**, corresponding **profit factor**, and **total number of trades executed by the strategy**.
 - A plotted graph showing **cumulative log returns** over time.
 
 #### Example Output
