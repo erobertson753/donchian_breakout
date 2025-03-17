@@ -48,13 +48,14 @@ The script:
 
 ### 3. Expected Output
 - **Optimal lookback period**, corresponding **profit factor**, and **total number of trades** executed by the strategy.
-- A plotted graph showing **cumulative log returns** over time.
+- A plotted graph showing the **cumulative log returns** of the **trading strategy** over time.
+- A plotted graph showing the **cumulative log returns** of an **unmanaged long position** over time.
 
 #### Example Output
 ```
 Best Lookback: 43, Best Profit Factor: 1.04 over 65,810 total trades
 ```
-(A figure displaying cumulative returns will also be generated.)
+(Figures displaying cumulative returns of the trading strategy and unmanaged long position will also be generated.)
 
 ## License
 This project is licensed under the **MIT License**. See the original **mcpt** project by **neurotrader888** for reference: [GitHub Repository](https://github.com/neurotrader888/mcpt).
