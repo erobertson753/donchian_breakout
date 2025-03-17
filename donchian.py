@@ -16,7 +16,7 @@ def donchian_breakout(ohlc: pd.DataFrame, lookback: int) -> pd.Series:
     lookback (int): Lookback period for the Donchian channel.
 
     Returns:
-    pd.Series: Trading signals (1 for buy, -1 for sell, 0 for hold).
+    pd.Series: Trading signals (1 for long, -1 for short, 0 as a placeholder).
     """
     if "Close" not in ohlc:
         raise ValueError("Input DataFrame must contain a 'Close' column.")
@@ -88,6 +88,26 @@ def plot_donchian(df: pd.DataFrame, signal: pd.Series, lookback: int) -> None:
     plt.tight_layout()
     plt.show()
 
+def plot_unmanaged_long(df: pd.DataFrame) -> None:
+    """Plots the cumulative log return of an unmanaged long position."""
+    if not {"Close", "Date"}.issubset(df.columns):
+        raise ValueError("DataFrame must contain 'Close' and 'Date' columns.")
+    
+    df = df.copy()
+    df["r"] = np.log(df["Close"]).diff().shift(-1)
+    df["Date"] = pd.to_datetime(df["Date"])
+    df.set_index("Date", inplace=True)
+
+    plt.style.use("dark_background")
+    df["r"].cumsum().plot(color="green", figsize=(10,5), label="Cumulative Log Return")
+
+    plt.title(f"Unmanaged Long Position")
+    plt.ylabel("Cumulative Log Return")
+    plt.xlabel("Date")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha = 0.6)
+    plt.show()
+    
 
 if __name__ == "__main__":
     try:
@@ -95,9 +115,12 @@ if __name__ == "__main__":
         df["Date"] = pd.to_datetime(df["Date"], format="mixed")
 
         best_lookback, best_profit_factor = optimize_donchian(df)
-        print(f"Best Lookback: {best_lookback}, Best Profit Factor: {best_profit_factor:.2f}")
-
         signal = donchian_breakout(df, best_lookback)
+        trade_count = (signal != 0).sum()
+        print(f"Best Lookback: {best_lookback}, Best Profit Factor: {best_profit_factor:.2f} over {trade_count:,} total trades")
+
         plot_donchian(df, signal, best_lookback)
+        plot_unmanaged_long(df)
+
     except Exception as error:
         print(f"Error: {error}")
