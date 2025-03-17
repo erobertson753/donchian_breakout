@@ -18,6 +18,10 @@ Install dependencies using:
 ```sh
 pip install pandas numpy matplotlib
 ```
+and 
+```sh
+install.packages(c("lubridate", "dplyr", "tidyverse"))
+```
 
 ## Usage
 ### 1. Prepare Your Data
