@@ -57,7 +57,7 @@ The script:
 
 #### Example Output
 ```
-Best Lookback: 43, Best Profit Factor: 1.04 over 65,810 total trades
+Best Lookback: 43 hours, Best Profit Factor: 1.04, over 65,810 total trades
 ```
 (Figures displaying cumulative returns of the trading strategy and unmanaged long position will also be generated.)
 
