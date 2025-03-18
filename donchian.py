@@ -117,7 +117,7 @@ if __name__ == "__main__":
         best_lookback, best_profit_factor = optimize_donchian(df)
         signal = donchian_breakout(df, best_lookback)
         trade_count = (signal != 0).sum()
-        print(f"Best Lookback: {best_lookback} hours, Best Profit Factor: {best_profit_factor:.2f} over {trade_count:,} total trades")
+        print(f"Best Lookback: {best_lookback} hours, Best Profit Factor: {best_profit_factor:.2f}, over {trade_count:,} total trades")
 
         plot_donchian(df, signal, best_lookback)
         plot_unmanaged_long(df)
